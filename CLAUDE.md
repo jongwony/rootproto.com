@@ -33,8 +33,9 @@ All source lives in `src/app/` (3 files):
 
 - `--accent: #f97316` (orange, both light/dark)
 - Dark mode via `prefers-color-scheme` media query (automatic)
-- Font stack: Pretendard Variable (Korean) → Geist Sans → system-ui
-- Brand font: Bruno Ace SC (`--font-brand`)
+- Font stack (`--font-sans`): Pretendard Variable (Korean) → Geist Sans → system-ui
+- Brand font (`--font-brand`): Bruno Ace SC
+- Monospace (`--font-mono`): Geist Mono
 
 ### Deployment
 

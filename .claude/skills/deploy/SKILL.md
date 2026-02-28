@@ -16,7 +16,7 @@ Automate the build-commit-push-verify deployment cycle for rootproto.com
 
 ## Prerequisites
 
-- Working directory: `/Users/choi/Downloads/github/private/rootproto.com`
+- Working directory: repository root (verify with `git rev-parse --show-toplevel`)
 - Node.js and npm installed
 - GitHub CLI (`gh`) authenticated
 - Remote: `origin` pointing to `github.com/jongwony/rootproto.com`
@@ -28,7 +28,7 @@ Execute the following steps sequentially. Halt on any failure and report the err
 ### Step 1: Build
 
 ```bash
-cd /Users/choi/Downloads/github/private/rootproto.com
+cd "$(git rev-parse --show-toplevel)"
 npm run build
 ```
 
@@ -70,13 +70,9 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
 
 Use HEREDOC format for the commit message to preserve formatting.
 
-### Step 5: Push (Prosoche Gate)
+### Step 5: Push
 
-**IMPORTANT**: If Prosoche protocol is active, `git push origin main` triggers a
-Gate checkpoint (Irreversibility + ExternalMutation). Present the push action for
-user approval before executing.
-
-If Prosoche is not active, confirm with the user before pushing since this action:
+**IMPORTANT**: Confirm with the user before pushing since this action:
 - Is irreversible (pushes to remote)
 - Triggers GitHub Actions deployment workflow
 - Updates the live site at rootproto.com
