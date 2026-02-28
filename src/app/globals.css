@@ -4,14 +4,17 @@
   --background: #fafafa;
   --foreground: #18181b;
   --muted: #71717a;
+  --accent: #f97316;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
+  --color-accent: var(--accent);
   --font-sans: "Pretendard Variable", var(--font-geist-sans), system-ui,
     sans-serif;
+  --font-brand: var(--font-bruno-ace-sc), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 

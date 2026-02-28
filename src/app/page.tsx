@@ -41,7 +41,7 @@ export default function Home() {
             height="40"
             viewBox="0 0 40 40"
             fill="none"
-            className="text-foreground"
+            className="text-accent"
           >
             <circle
               cx="20"
@@ -55,8 +55,8 @@ export default function Home() {
         </div>
 
         {/* Brand name */}
-        <h1 className="animate-fade-in-2 font-mono text-2xl tracking-tight">
-          rootproto
+        <h1 className="animate-fade-in-2 font-brand text-2xl tracking-[0.15em] sm:text-3xl sm:tracking-[0.25em]">
+          ROOTPROTO
         </h1>
 
         {/* Tagline */}
