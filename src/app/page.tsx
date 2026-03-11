@@ -71,7 +71,7 @@ function InteractiveMascot() {
           onClick={triggerPress}
         >
           <Image
-            src="/mascot-character-transparent.png"
+            src="/mascot.png"
             alt=""
             width={432}
             height={736}
@@ -248,7 +248,7 @@ export default function Home() {
 
           {/* CTA */}
           <a
-            href="mailto:hello@rootproto.com"
+            href="mailto:lastone9182@gmail.com"
             className="animate-fade-in-4 group inline-flex items-center gap-2 rounded-full border border-foreground/10 px-6 py-2.5 text-sm font-medium transition-all hover:border-foreground/25 hover:bg-foreground/[0.03]"
           >
             {t.cta}
