@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import {
   founderItems,
   layerMeta,
@@ -26,6 +27,64 @@ const content = {
 } as const;
 
 type Locale = keyof typeof content;
+
+function InteractiveMascot() {
+  const [visible, setVisible] = useState(true);
+  const [pressed, setPressed] = useState(false);
+  const pressTimeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (pressTimeoutRef.current !== null) {
+        window.clearTimeout(pressTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const triggerPress = () => {
+    if (pressTimeoutRef.current !== null) {
+      window.clearTimeout(pressTimeoutRef.current);
+    }
+
+    setPressed(true);
+    pressTimeoutRef.current = window.setTimeout(() => {
+      setPressed(false);
+      pressTimeoutRef.current = null;
+    }, 420);
+  };
+
+  if (!visible) {
+    return null;
+  }
+
+  return (
+    <div
+      className="pointer-events-none fixed right-6 bottom-6 z-[5] hidden lg:block xl:right-8 xl:bottom-8"
+      aria-hidden="true"
+    >
+      <div className="mascot-float w-[220px] xl:w-[250px]">
+        <button
+          type="button"
+          tabIndex={-1}
+          aria-hidden="true"
+          className={`mascot-button pointer-events-auto ${pressed ? "is-pressed" : ""}`}
+          onClick={triggerPress}
+        >
+          <Image
+            src="/mascot-character-transparent.png"
+            alt=""
+            width={432}
+            height={736}
+            sizes="(min-width: 1280px) 250px, 220px"
+            unoptimized
+            className="mascot-image"
+            onError={() => setVisible(false)}
+          />
+        </button>
+      </div>
+    </div>
+  );
+}
 
 // ── Inline components ───────────────────────────
 
@@ -141,6 +200,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
+      <InteractiveMascot />
+
       {/* Language toggle */}
       <nav className="animate-fade-in fixed top-6 right-6 z-10">
         <button
